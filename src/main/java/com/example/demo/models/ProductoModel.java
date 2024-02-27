@@ -9,6 +9,7 @@ public class ProductoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private long id;
+    private String image;
     private String nombre;
     private double precio;
 
@@ -16,8 +17,9 @@ public class ProductoModel {
 
     }
 
-    public ProductoModel(long id, String nombre, double precio) {
+    public ProductoModel(long id,String image, String nombre, double precio) {
         this.id = id;
+        this.image = image;
         this.nombre = nombre;
         this.precio = precio;
     }
@@ -28,6 +30,14 @@ public class ProductoModel {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getNombre() {

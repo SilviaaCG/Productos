@@ -1,13 +1,18 @@
 package com.example.demo;
 
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-public class ServletInitializer extends SpringBootServletInitializer {
+import com.example.demo.interceptors.HorarioInterceptor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+
+@Configuration
+public class ServletInitializer implements WebMvcConfigurer {
 
 	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(DemoApplication.class);
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new HorarioInterceptor());
 	}
 
 }

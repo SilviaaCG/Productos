@@ -9,6 +9,6 @@ public class HomeController {
     @GetMapping({"", "/", "/home"})
     public String home(Model model){
         model.addAttribute("title","¡Welcome!");
-        return "redirect:/usuarios";
+        return "redirect:/producto";
     }
 }
